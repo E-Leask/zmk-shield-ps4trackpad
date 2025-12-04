@@ -18,6 +18,17 @@
 };
 
 / {
+	chosen {
+		zmk,kscan = &mock_kscan;
+	};
+
+	mock_kscan: mock_kscan {
+		compatible = "zmk,kscan-mock";
+		columns = <0>;
+		rows = <0>;
+		events = <0>;
+	};
+
 	/*
 	 * This node is required for ZMK to listen to the trackpad
 	 * for pointer movement and gestures.
