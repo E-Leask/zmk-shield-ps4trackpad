@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) 2024 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/*
+ * NOTE: The PS4 trackpad likely uses a Synaptics RMI4 driver.
+ * You may need to adjust the `compatible` property if you use a different trackpad.
+ * You will also need to update the `reg` (I2C address) and `irq-gpios`
+ * to match your hardware wiring.
+ */
+
+&i2c0 {
+	status = "okay";
+	trackpad: maxtouch@4a {
+		compatible = "microchip,maxtouch";
+		reg = <0x4a>;
+		chg-gpios = <&pro_micro 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		sensor-width = <48>;
+		sensor-height= <23>;
+		swap-xy;
+		repeat-each-cycle;
+	};
+};
+
+/ {
+	/*
+	 * This node is required for ZMK to listen to the trackpad
+	 * for pointer movement and gestures.
+	 */
+	trackpad_listener {
+		compatible = "zmk,input-listener";
+		device = <&trackpad>;
+		mode = "trackpad";
+	};
+};

@@ -1,0 +1,22 @@
+# Copyright (c) 2019 Linaro Limited
+# SPDX-License-Identifier: Apache-2.0
+
+if SHIELD_PS4_TRACKPAD
+
+if ZMK_TRACKPAD
+
+config ZMK_TRACKPAD_LOGICAL_X
+	default 11
+
+config ZMK_TRACKPAD_LOGICAL_Y
+	default 5
+
+config ZMK_TRACKPAD_PHYSICAL_X
+	default 480
+
+config ZMK_TRACKPAD_PHYSICAL_Y
+	default 230
+
+endif # ZMK_TRACKPAD
+
+endif # SHIELD_PS4_TRACKPAD 

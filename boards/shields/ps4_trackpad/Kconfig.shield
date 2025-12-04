@@ -1,0 +1,5 @@
+config ZMK_SHIELD_PS4_TRACKPAD
+    def_bool $(shields_list_contains,ps4_trackpad)
+    imply ZMK_MOUSE
+    imply ZMK_TRACKPAD
+    select I2C
